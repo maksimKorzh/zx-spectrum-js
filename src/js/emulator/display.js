@@ -47,15 +47,21 @@ function fillMemory() {
 
 // draw screen
 function renderScreen() {
-  for (let area = 0; area < 17; area += 8) { console.log('next area ')
+  for (let offset = 0; offset < 129; offset += 64) {
     let shiftLine = 0;
-    for (let times = area; times < area + 8; times++) {
-      for (let line = area; line < area + 8; line++) {
-        let nextLine = times * 8 + line; console.log('next line: ' + nextLine + ' times: ' + times + ' line: ' + line + ' area: ' + area)
-        let nextOffset = line * 8 + shiftLine;
-        if (nextLine > 191) return; // 134
+    for (let times = 0; times < 8; times++) {
+      for (let line = 0; line < 8; line++) {
+        let nextLine = times * 8 + line + offset;
+        let nextOffset = line * 8 + shiftLine + offset;
+        if (nextLine > 191) return; // 134  191
         renderLine(nextLine, nextOffset);
       } shiftLine++;
     }
   }
 }
+
+
+
+
+
+
