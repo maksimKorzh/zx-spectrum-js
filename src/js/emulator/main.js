@@ -15,7 +15,7 @@ function cpuLoop() {
     var tCycles = cpu.run_instruction();
     count++;
   }
-  renderArea();
+  //renderScreen();
   setTimeout(cpuLoop, 0);
   
   // render FPS to screen
